@@ -3,6 +3,7 @@ package utils;
 
 import entities.Role;
 import entities.User;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,6 +29,7 @@ public class SetupTestUsers {
 
     if(admin.getUserPass().equals("test")||user.getUserPass().equals("test")||both.getUserPass().equals("test"))
       throw new UnsupportedOperationException("You have not changed the passwords");
+
 
     em.getTransaction().begin();
     Role userRole = new Role("user");
